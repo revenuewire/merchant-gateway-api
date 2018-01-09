@@ -57,6 +57,8 @@ class MerchantGatewayVersion implements ArrayAccess
         'id' => 'string',
         'clientId' => 'string',
         'gateways' => '\Swagger\Client\Model\GatewayConfigurations',
+        'currencyPolicy' => 'string',
+        'currencyOverride' => 'string[]',
         'created' => 'int',
         'modified' => 'int'
     ];
@@ -74,6 +76,8 @@ class MerchantGatewayVersion implements ArrayAccess
         'id' => 'id',
         'clientId' => 'clientId',
         'gateways' => 'gateways',
+        'currencyPolicy' => 'currencyPolicy',
+        'currencyOverride' => 'currencyOverride',
         'created' => 'created',
         'modified' => 'modified'
     ];
@@ -87,6 +91,8 @@ class MerchantGatewayVersion implements ArrayAccess
         'id' => 'setId',
         'clientId' => 'setClientId',
         'gateways' => 'setGateways',
+        'currencyPolicy' => 'setCurrencyPolicy',
+        'currencyOverride' => 'setCurrencyOverride',
         'created' => 'setCreated',
         'modified' => 'setModified'
     ];
@@ -100,6 +106,8 @@ class MerchantGatewayVersion implements ArrayAccess
         'id' => 'getId',
         'clientId' => 'getClientId',
         'gateways' => 'getGateways',
+        'currencyPolicy' => 'getCurrencyPolicy',
+        'currencyOverride' => 'getCurrencyOverride',
         'created' => 'getCreated',
         'modified' => 'getModified'
     ];
@@ -119,8 +127,24 @@ class MerchantGatewayVersion implements ArrayAccess
         return self::$getters;
     }
 
+    const CURRENCY_POLICY_ALL_CURRENCIES = 'ALL_CURRENCIES';
+    const CURRENCY_POLICY_PAYPAL_EXPRESS = 'PAYPAL_EXPRESS';
+    const CURRENCY_POLICY_CUSTOM = 'CUSTOM';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getCurrencyPolicyAllowableValues()
+    {
+        return [
+            self::CURRENCY_POLICY_ALL_CURRENCIES,
+            self::CURRENCY_POLICY_PAYPAL_EXPRESS,
+            self::CURRENCY_POLICY_CUSTOM,
+        ];
+    }
     
 
     /**
@@ -138,6 +162,8 @@ class MerchantGatewayVersion implements ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['clientId'] = isset($data['clientId']) ? $data['clientId'] : null;
         $this->container['gateways'] = isset($data['gateways']) ? $data['gateways'] : null;
+        $this->container['currencyPolicy'] = isset($data['currencyPolicy']) ? $data['currencyPolicy'] : null;
+        $this->container['currencyOverride'] = isset($data['currencyOverride']) ? $data['currencyOverride'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
     }
@@ -151,6 +177,11 @@ class MerchantGatewayVersion implements ArrayAccess
     {
         $invalid_properties = [];
 
+        $allowed_values = ["ALL_CURRENCIES", "PAYPAL_EXPRESS", "CUSTOM"];
+        if (!in_array($this->container['currencyPolicy'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'currencyPolicy', must be one of 'ALL_CURRENCIES', 'PAYPAL_EXPRESS', 'CUSTOM'.";
+        }
+
         return $invalid_properties;
     }
 
@@ -163,6 +194,10 @@ class MerchantGatewayVersion implements ArrayAccess
     public function valid()
     {
 
+        $allowed_values = ["ALL_CURRENCIES", "PAYPAL_EXPRESS", "CUSTOM"];
+        if (!in_array($this->container['currencyPolicy'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
@@ -226,6 +261,52 @@ class MerchantGatewayVersion implements ArrayAccess
     public function setGateways($gateways)
     {
         $this->container['gateways'] = $gateways;
+
+        return $this;
+    }
+
+    /**
+     * Gets currencyPolicy
+     * @return string
+     */
+    public function getCurrencyPolicy()
+    {
+        return $this->container['currencyPolicy'];
+    }
+
+    /**
+     * Sets currencyPolicy
+     * @param string $currencyPolicy
+     * @return $this
+     */
+    public function setCurrencyPolicy($currencyPolicy)
+    {
+        $allowed_values = array('ALL_CURRENCIES', 'PAYPAL_EXPRESS', 'CUSTOM');
+        if (!is_null($currencyPolicy) && (!in_array($currencyPolicy, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'currencyPolicy', must be one of 'ALL_CURRENCIES', 'PAYPAL_EXPRESS', 'CUSTOM'");
+        }
+        $this->container['currencyPolicy'] = $currencyPolicy;
+
+        return $this;
+    }
+
+    /**
+     * Gets currencyOverride
+     * @return string[]
+     */
+    public function getCurrencyOverride()
+    {
+        return $this->container['currencyOverride'];
+    }
+
+    /**
+     * Sets currencyOverride
+     * @param string[] $currencyOverride
+     * @return $this
+     */
+    public function setCurrencyOverride($currencyOverride)
+    {
+        $this->container['currencyOverride'] = $currencyOverride;
 
         return $this;
     }
