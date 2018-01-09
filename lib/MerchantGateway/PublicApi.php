@@ -88,18 +88,122 @@ class PublicApi
     }
 
     /**
+     * Operation getCurrencies
+     *
+     * get list of currencies
+     *
+     * @param string $clientId  (required)
+     * @param string $version  (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\Currencies
+     */
+    public function getCurrencies($clientId, $version = null)
+    {
+        list($response) = $this->getCurrenciesWithHttpInfo($clientId, $version);
+        return $response;
+    }
+
+    /**
+     * Operation getCurrenciesWithHttpInfo
+     *
+     * get list of currencies
+     *
+     * @param string $clientId  (required)
+     * @param string $version  (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\Currencies, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCurrenciesWithHttpInfo($clientId, $version = null)
+    {
+        // verify the required parameter 'clientId' is set
+        if ($clientId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $clientId when calling getCurrencies');
+        }
+        // parse inputs
+        $resourcePath = "/merchants/{clientId}/currencies";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+
+        // query params
+        if ($version !== null) {
+            $queryParams['version'] = $this->apiClient->getSerializer()->toQueryValue($version);
+        }
+        // path params
+        if ($clientId !== null) {
+            $resourcePath = str_replace(
+                "{" . "clientId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($clientId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('X-API-KEY');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['X-API-KEY'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('X-Authorization-JWT');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['X-Authorization-JWT'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\Currencies',
+                '/merchants/{clientId}/currencies'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Currencies', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Currencies', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation getPaymentMethods
      *
      * get list of payment methods
      *
+     * @param string $clientId  (required)
      * @param string $country  (optional)
      * @param string $currency  (optional)
+     * @param string $version  (optional)
+     * @param string $hasAffiliation  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return \Swagger\Client\Model\Methods
      */
-    public function getPaymentMethods($country = null, $currency = null)
+    public function getPaymentMethods($clientId, $country = null, $currency = null, $version = null, $hasAffiliation = null)
     {
-        list($response) = $this->getPaymentMethodsWithHttpInfo($country, $currency);
+        list($response) = $this->getPaymentMethodsWithHttpInfo($clientId, $country, $currency, $version, $hasAffiliation);
         return $response;
     }
 
@@ -108,15 +212,22 @@ class PublicApi
      *
      * get list of payment methods
      *
+     * @param string $clientId  (required)
      * @param string $country  (optional)
      * @param string $currency  (optional)
+     * @param string $version  (optional)
+     * @param string $hasAffiliation  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of \Swagger\Client\Model\Methods, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPaymentMethodsWithHttpInfo($country = null, $currency = null)
+    public function getPaymentMethodsWithHttpInfo($clientId, $country = null, $currency = null, $version = null, $hasAffiliation = null)
     {
+        // verify the required parameter 'clientId' is set
+        if ($clientId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $clientId when calling getPaymentMethods');
+        }
         // parse inputs
-        $resourcePath = "/payment-methods";
+        $resourcePath = "/merchants/{clientId}/payment-methods";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -134,6 +245,22 @@ class PublicApi
         // query params
         if ($currency !== null) {
             $queryParams['currency'] = $this->apiClient->getSerializer()->toQueryValue($currency);
+        }
+        // query params
+        if ($version !== null) {
+            $queryParams['version'] = $this->apiClient->getSerializer()->toQueryValue($version);
+        }
+        // query params
+        if ($hasAffiliation !== null) {
+            $queryParams['hasAffiliation'] = $this->apiClient->getSerializer()->toQueryValue($hasAffiliation);
+        }
+        // path params
+        if ($clientId !== null) {
+            $resourcePath = str_replace(
+                "{" . "clientId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($clientId),
+                $resourcePath
+            );
         }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
@@ -164,7 +291,7 @@ class PublicApi
                 $httpBody,
                 $headerParams,
                 '\Swagger\Client\Model\Methods',
-                '/payment-methods'
+                '/merchants/{clientId}/payment-methods'
             );
 
             return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Methods', $httpHeader), $statusCode, $httpHeader];
