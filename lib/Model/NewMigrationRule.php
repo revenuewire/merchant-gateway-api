@@ -1,6 +1,6 @@
 <?php
 /**
- * GatewayConfiguration
+ * NewMigrationRule
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * GatewayConfiguration Class Doc Comment
+ * NewMigrationRule Class Doc Comment
  *
  * @category    Class
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class GatewayConfiguration implements ArrayAccess
+class NewMigrationRule implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,15 +47,16 @@ class GatewayConfiguration implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'gatewayConfiguration';
+    protected static $swaggerModelName = 'newMigrationRule';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'gateway' => '\Swagger\Client\Model\Gateway',
-        'paymentMethods' => '\Swagger\Client\Model\PaymentMethod[]'
+        'fromGateway' => '\Swagger\Client\Model\Gateway',
+        'toGateway' => '\Swagger\Client\Model\Gateway',
+        'paymentMethod' => '\Swagger\Client\Model\Method'
     ];
 
     public static function swaggerTypes()
@@ -68,8 +69,9 @@ class GatewayConfiguration implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'gateway' => 'gateway',
-        'paymentMethods' => 'paymentMethods'
+        'fromGateway' => 'fromGateway',
+        'toGateway' => 'toGateway',
+        'paymentMethod' => 'paymentMethod'
     ];
 
 
@@ -78,8 +80,9 @@ class GatewayConfiguration implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'gateway' => 'setGateway',
-        'paymentMethods' => 'setPaymentMethods'
+        'fromGateway' => 'setFromGateway',
+        'toGateway' => 'setToGateway',
+        'paymentMethod' => 'setPaymentMethod'
     ];
 
 
@@ -88,8 +91,9 @@ class GatewayConfiguration implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'gateway' => 'getGateway',
-        'paymentMethods' => 'getPaymentMethods'
+        'fromGateway' => 'getFromGateway',
+        'toGateway' => 'getToGateway',
+        'paymentMethod' => 'getPaymentMethod'
     ];
 
     public static function attributeMap()
@@ -123,8 +127,9 @@ class GatewayConfiguration implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['gateway'] = isset($data['gateway']) ? $data['gateway'] : null;
-        $this->container['paymentMethods'] = isset($data['paymentMethods']) ? $data['paymentMethods'] : null;
+        $this->container['fromGateway'] = isset($data['fromGateway']) ? $data['fromGateway'] : null;
+        $this->container['toGateway'] = isset($data['toGateway']) ? $data['toGateway'] : null;
+        $this->container['paymentMethod'] = isset($data['paymentMethod']) ? $data['paymentMethod'] : null;
     }
 
     /**
@@ -153,43 +158,64 @@ class GatewayConfiguration implements ArrayAccess
 
 
     /**
-     * Gets gateway
+     * Gets fromGateway
      * @return \Swagger\Client\Model\Gateway
      */
-    public function getGateway()
+    public function getFromGateway()
     {
-        return $this->container['gateway'];
+        return $this->container['fromGateway'];
     }
 
     /**
-     * Sets gateway
-     * @param \Swagger\Client\Model\Gateway $gateway
+     * Sets fromGateway
+     * @param \Swagger\Client\Model\Gateway $fromGateway
      * @return $this
      */
-    public function setGateway($gateway)
+    public function setFromGateway($fromGateway)
     {
-        $this->container['gateway'] = $gateway;
+        $this->container['fromGateway'] = $fromGateway;
 
         return $this;
     }
 
     /**
-     * Gets paymentMethods
-     * @return \Swagger\Client\Model\PaymentMethod[]
+     * Gets toGateway
+     * @return \Swagger\Client\Model\Gateway
      */
-    public function getPaymentMethods()
+    public function getToGateway()
     {
-        return $this->container['paymentMethods'];
+        return $this->container['toGateway'];
     }
 
     /**
-     * Sets paymentMethods
-     * @param \Swagger\Client\Model\PaymentMethod[] $paymentMethods
+     * Sets toGateway
+     * @param \Swagger\Client\Model\Gateway $toGateway
      * @return $this
      */
-    public function setPaymentMethods($paymentMethods)
+    public function setToGateway($toGateway)
     {
-        $this->container['paymentMethods'] = $paymentMethods;
+        $this->container['toGateway'] = $toGateway;
+
+        return $this;
+    }
+
+    /**
+     * Gets paymentMethod
+     * @return \Swagger\Client\Model\Method
+     */
+    public function getPaymentMethod()
+    {
+        return $this->container['paymentMethod'];
+    }
+
+    /**
+     * Sets paymentMethod
+     * @param \Swagger\Client\Model\Method $paymentMethod
+     * @return $this
+     */
+    public function setPaymentMethod($paymentMethod)
+    {
+        $this->container['paymentMethod'] = $paymentMethod;
 
         return $this;
     }

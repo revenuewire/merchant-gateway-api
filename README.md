@@ -65,19 +65,14 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Authorizat
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Authorization-JWT', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\MerchantGatewaysApi();
+$api_instance = new Swagger\Client\Api\MerchantGatewayApi();
 $clientId = "clientId_example"; // string | 
-$method = "method_example"; // string | 
-$country = "country_example"; // string | 
-$currency = "currency_example"; // string | 
-$hasAffiliation = "hasAffiliation_example"; // string | 
-$version = "version_example"; // string | 
 
 try {
-    $result = $api_instance->chooseGateway($clientId, $method, $country, $currency, $hasAffiliation, $version);
+    $result = $api_instance->createMerchantGateway($clientId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MerchantGatewaysApi->chooseGateway: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MerchantGatewayApi->createMerchantGateway: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>
@@ -89,13 +84,16 @@ All URIs are relative to *https://localhost/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*MerchantGatewaysApi* | [**chooseGateway**](docs/Api/MerchantGatewaysApi.md#choosegateway) | **GET** /merchants/{clientId}/choose-gateway | Choose a gateway
-*MerchantGatewaysConfigurationApi* | [**activateMerchantGatewayVersion**](docs/Api/MerchantGatewaysConfigurationApi.md#activatemerchantgatewayversion) | **POST** /merchants/{clientId}/versions/{version}/activate | activate gateway version
-*MerchantGatewaysConfigurationApi* | [**createMerchantGateway**](docs/Api/MerchantGatewaysConfigurationApi.md#createmerchantgateway) | **POST** /merchants | create merchant gateway configuration
-*MerchantGatewaysConfigurationApi* | [**createMerchantGatewayVersion**](docs/Api/MerchantGatewaysConfigurationApi.md#createmerchantgatewayversion) | **POST** /merchants/{clientId}/versions | create a new gateway configuration version.
-*MerchantGatewaysConfigurationApi* | [**getMerchantGateway**](docs/Api/MerchantGatewaysConfigurationApi.md#getmerchantgateway) | **GET** /merchants/{clientId} | get merchant gateway configuration
-*MerchantGatewaysConfigurationApi* | [**getMerchantGatewayVersion**](docs/Api/MerchantGatewaysConfigurationApi.md#getmerchantgatewayversion) | **GET** /merchants/{clientId}/versions/{version} | get gateway version detail
-*MerchantGatewaysConfigurationApi* | [**updateMerchantGatewayVersion**](docs/Api/MerchantGatewaysConfigurationApi.md#updatemerchantgatewayversion) | **PUT** /merchants/{clientId}/versions/{version} | update gateway version detail
+*MerchantGatewayApi* | [**createMerchantGateway**](docs/Api/MerchantGatewayApi.md#createmerchantgateway) | **POST** /merchants | create merchant gateway configuration
+*MerchantGatewayApi* | [**getMerchantGateway**](docs/Api/MerchantGatewayApi.md#getmerchantgateway) | **GET** /merchants/{clientId} | get merchant gateway configuration
+*MerchantGatewayConfigurationApi* | [**activateMerchantGatewayVersion**](docs/Api/MerchantGatewayConfigurationApi.md#activatemerchantgatewayversion) | **POST** /merchants/{clientId}/versions/{version}/activate | activate gateway version
+*MerchantGatewayConfigurationApi* | [**createMerchantGatewayVersion**](docs/Api/MerchantGatewayConfigurationApi.md#createmerchantgatewayversion) | **POST** /merchants/{clientId}/versions | create a new gateway configuration version.
+*MerchantGatewayConfigurationApi* | [**getMerchantGatewayVersion**](docs/Api/MerchantGatewayConfigurationApi.md#getmerchantgatewayversion) | **GET** /merchants/{clientId}/versions/{version} | get gateway version detail
+*MerchantGatewayConfigurationApi* | [**updateMerchantGatewayVersion**](docs/Api/MerchantGatewayConfigurationApi.md#updatemerchantgatewayversion) | **PUT** /merchants/{clientId}/versions/{version} | update gateway version detail
+*MigrationRulesApi* | [**createMigrationRule**](docs/Api/MigrationRulesApi.md#createmigrationrule) | **POST** /merchants/{clientId}/migration-rules | Create migration rule
+*MigrationRulesApi* | [**deleteMigrationRule**](docs/Api/MigrationRulesApi.md#deletemigrationrule) | **DELETE** /merchants/{clientId}/migration-rules/{ruleId} | Delete migration rule
+*MigrationRulesApi* | [**getMigrationRule**](docs/Api/MigrationRulesApi.md#getmigrationrule) | **GET** /merchants/{clientId}/migration-rules/{ruleId} | Get migration rule
+*PayApi* | [**chooseGateway**](docs/Api/PayApi.md#choosegateway) | **GET** /merchants/{clientId}/choose-gateway | Choose a gateway
 *PublicApi* | [**getCurrencies**](docs/Api/PublicApi.md#getcurrencies) | **GET** /merchants/{clientId}/currencies | get list of currencies
 *PublicApi* | [**getPaymentMethods**](docs/Api/PublicApi.md#getpaymentmethods) | **GET** /merchants/{clientId}/payment-methods | get list of payment methods
 
@@ -114,6 +112,9 @@ Class | Method | HTTP request | Description
  - [MerchantGatewayVersion](docs/Model/MerchantGatewayVersion.md)
  - [Method](docs/Model/Method.md)
  - [Methods](docs/Model/Methods.md)
+ - [MigrationRule](docs/Model/MigrationRule.md)
+ - [MigrationRules](docs/Model/MigrationRules.md)
+ - [NewMigrationRule](docs/Model/NewMigrationRule.md)
  - [PaymentMethod](docs/Model/PaymentMethod.md)
  - [Response](docs/Model/Response.md)
 

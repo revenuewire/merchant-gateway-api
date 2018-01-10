@@ -1,6 +1,6 @@
 <?php
 /**
- * GatewayConfiguration
+ * MigrationRules
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * GatewayConfiguration Class Doc Comment
+ * MigrationRules Class Doc Comment
  *
  * @category    Class
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class GatewayConfiguration implements ArrayAccess
+class MigrationRules implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,15 +47,14 @@ class GatewayConfiguration implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'gatewayConfiguration';
+    protected static $swaggerModelName = 'migrationRules';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'gateway' => '\Swagger\Client\Model\Gateway',
-        'paymentMethods' => '\Swagger\Client\Model\PaymentMethod[]'
+        
     ];
 
     public static function swaggerTypes()
@@ -68,8 +67,7 @@ class GatewayConfiguration implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'gateway' => 'gateway',
-        'paymentMethods' => 'paymentMethods'
+        
     ];
 
 
@@ -78,8 +76,7 @@ class GatewayConfiguration implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'gateway' => 'setGateway',
-        'paymentMethods' => 'setPaymentMethods'
+        
     ];
 
 
@@ -88,8 +85,7 @@ class GatewayConfiguration implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'gateway' => 'getGateway',
-        'paymentMethods' => 'getPaymentMethods'
+        
     ];
 
     public static function attributeMap()
@@ -123,8 +119,6 @@ class GatewayConfiguration implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['gateway'] = isset($data['gateway']) ? $data['gateway'] : null;
-        $this->container['paymentMethods'] = isset($data['paymentMethods']) ? $data['paymentMethods'] : null;
     }
 
     /**
@@ -134,7 +128,7 @@ class GatewayConfiguration implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalid_properties = parent::listInvalidProperties();
 
         return $invalid_properties;
     }
@@ -147,52 +141,13 @@ class GatewayConfiguration implements ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
         return true;
     }
 
-
-    /**
-     * Gets gateway
-     * @return \Swagger\Client\Model\Gateway
-     */
-    public function getGateway()
-    {
-        return $this->container['gateway'];
-    }
-
-    /**
-     * Sets gateway
-     * @param \Swagger\Client\Model\Gateway $gateway
-     * @return $this
-     */
-    public function setGateway($gateway)
-    {
-        $this->container['gateway'] = $gateway;
-
-        return $this;
-    }
-
-    /**
-     * Gets paymentMethods
-     * @return \Swagger\Client\Model\PaymentMethod[]
-     */
-    public function getPaymentMethods()
-    {
-        return $this->container['paymentMethods'];
-    }
-
-    /**
-     * Sets paymentMethods
-     * @param \Swagger\Client\Model\PaymentMethod[] $paymentMethods
-     * @return $this
-     */
-    public function setPaymentMethods($paymentMethods)
-    {
-        $this->container['paymentMethods'] = $paymentMethods;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      * @param  integer $offset Offset
