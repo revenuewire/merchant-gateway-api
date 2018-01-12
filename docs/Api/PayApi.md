@@ -1,6 +1,6 @@
 # Swagger\Client\PayApi
 
-All URIs are relative to *https://localhost/v1*
+All URIs are relative to *https://merchant-gateway-api.revenuewire.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

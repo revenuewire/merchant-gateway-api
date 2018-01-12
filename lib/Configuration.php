@@ -88,7 +88,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https://localhost/v1';
+    protected $host = 'https://merchant-gateway-api.revenuewire.io/v1';
 
     /**
      * Timeout (second) of the HTTP request, by default set to 0, no timeout

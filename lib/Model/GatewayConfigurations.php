@@ -54,7 +54,9 @@ class GatewayConfigurations implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'gateways' => '\Swagger\Client\Model\GatewayConfiguration[]',
+        'currencyPolicy' => 'string',
+        'currencyOverride' => '\Swagger\Client\Model\Currency[]'
     ];
 
     public static function swaggerTypes()
@@ -67,7 +69,9 @@ class GatewayConfigurations implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'gateways' => 'gateways',
+        'currencyPolicy' => 'currencyPolicy',
+        'currencyOverride' => 'currencyOverride'
     ];
 
 
@@ -76,7 +80,9 @@ class GatewayConfigurations implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'gateways' => 'setGateways',
+        'currencyPolicy' => 'setCurrencyPolicy',
+        'currencyOverride' => 'setCurrencyOverride'
     ];
 
 
@@ -85,7 +91,9 @@ class GatewayConfigurations implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'gateways' => 'getGateways',
+        'currencyPolicy' => 'getCurrencyPolicy',
+        'currencyOverride' => 'getCurrencyOverride'
     ];
 
     public static function attributeMap()
@@ -103,8 +111,24 @@ class GatewayConfigurations implements ArrayAccess
         return self::$getters;
     }
 
+    const CURRENCY_POLICY_DEFAULT = 'DEFAULT';
+    const CURRENCY_POLICY_ALL_CURRENCIES = 'ALL_CURRENCIES';
+    const CURRENCY_POLICY_CUSTOM = 'CUSTOM';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getCurrencyPolicyAllowableValues()
+    {
+        return [
+            self::CURRENCY_POLICY_DEFAULT,
+            self::CURRENCY_POLICY_ALL_CURRENCIES,
+            self::CURRENCY_POLICY_CUSTOM,
+        ];
+    }
     
 
     /**
@@ -119,6 +143,9 @@ class GatewayConfigurations implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['gateways'] = isset($data['gateways']) ? $data['gateways'] : null;
+        $this->container['currencyPolicy'] = isset($data['currencyPolicy']) ? $data['currencyPolicy'] : null;
+        $this->container['currencyOverride'] = isset($data['currencyOverride']) ? $data['currencyOverride'] : null;
     }
 
     /**
@@ -128,7 +155,12 @@ class GatewayConfigurations implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = parent::listInvalidProperties();
+        $invalid_properties = [];
+
+        $allowed_values = ["DEFAULT", "ALL_CURRENCIES", "CUSTOM"];
+        if (!in_array($this->container['currencyPolicy'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'currencyPolicy', must be one of 'DEFAULT', 'ALL_CURRENCIES', 'CUSTOM'.";
+        }
 
         return $invalid_properties;
     }
@@ -141,13 +173,81 @@ class GatewayConfigurations implements ArrayAccess
      */
     public function valid()
     {
-        if (!parent::valid()) {
+
+        $allowed_values = ["DEFAULT", "ALL_CURRENCIES", "CUSTOM"];
+        if (!in_array($this->container['currencyPolicy'], $allowed_values)) {
             return false;
         }
-
         return true;
     }
 
+
+    /**
+     * Gets gateways
+     * @return \Swagger\Client\Model\GatewayConfiguration[]
+     */
+    public function getGateways()
+    {
+        return $this->container['gateways'];
+    }
+
+    /**
+     * Sets gateways
+     * @param \Swagger\Client\Model\GatewayConfiguration[] $gateways
+     * @return $this
+     */
+    public function setGateways($gateways)
+    {
+        $this->container['gateways'] = $gateways;
+
+        return $this;
+    }
+
+    /**
+     * Gets currencyPolicy
+     * @return string
+     */
+    public function getCurrencyPolicy()
+    {
+        return $this->container['currencyPolicy'];
+    }
+
+    /**
+     * Sets currencyPolicy
+     * @param string $currencyPolicy
+     * @return $this
+     */
+    public function setCurrencyPolicy($currencyPolicy)
+    {
+        $allowed_values = array('DEFAULT', 'ALL_CURRENCIES', 'CUSTOM');
+        if (!is_null($currencyPolicy) && (!in_array($currencyPolicy, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'currencyPolicy', must be one of 'DEFAULT', 'ALL_CURRENCIES', 'CUSTOM'");
+        }
+        $this->container['currencyPolicy'] = $currencyPolicy;
+
+        return $this;
+    }
+
+    /**
+     * Gets currencyOverride
+     * @return \Swagger\Client\Model\Currency[]
+     */
+    public function getCurrencyOverride()
+    {
+        return $this->container['currencyOverride'];
+    }
+
+    /**
+     * Sets currencyOverride
+     * @param \Swagger\Client\Model\Currency[] $currencyOverride
+     * @return $this
+     */
+    public function setCurrencyOverride($currencyOverride)
+    {
+        $this->container['currencyOverride'] = $currencyOverride;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      * @param  integer $offset Offset

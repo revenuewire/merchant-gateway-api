@@ -80,7 +80,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://localhost/v1*
+All URIs are relative to *https://merchant-gateway-api.revenuewire.io/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
