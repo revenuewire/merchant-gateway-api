@@ -20,11 +20,11 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/revenuewire/merchant-gateway-api.git"
+      "url": "https://github.com/revenuewire/merchant-gateway-api-sdk-php.git"
     }
   ],
   "require": {
-    "revenuewire/merchant-gateway-api": "*@dev"
+    "revenuewire/merchant-gateway-api-sdk-php": "*@dev"
   }
 }
 ```

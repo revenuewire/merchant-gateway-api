@@ -13,12 +13,12 @@ if [ "$git_user_id" = "" ]; then
 fi
 
 if [ "$git_repo_id" = "" ]; then
-    git_repo_id="merchant-gateway-api"
+    git_repo_id="merchant-gateway-api-sdk-php"
     echo "[INFO] No command line input provided. Set \$git_repo_id to $git_repo_id"
 fi
 
 if [ "$release_note" = "" ]; then
-    release_note="37"
+    release_note="38"
     echo "[INFO] No command line input provided. Set \$release_note to $release_note"
 fi
 
