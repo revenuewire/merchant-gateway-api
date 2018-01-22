@@ -106,6 +106,7 @@ Class | Method | HTTP request | Description
  - [Gateway](docs/Model/Gateway.md)
  - [GatewayConfiguration](docs/Model/GatewayConfiguration.md)
  - [GatewayConfigurations](docs/Model/GatewayConfigurations.md)
+ - [GatewayPolicy](docs/Model/GatewayPolicy.md)
  - [Gateways](docs/Model/Gateways.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)
  - [MerchantGateway](docs/Model/MerchantGateway.md)

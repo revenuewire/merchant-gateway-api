@@ -56,6 +56,7 @@ class MerchantGatewayVersion implements ArrayAccess
     protected static $swaggerTypes = [
         'id' => 'string',
         'clientId' => 'string',
+        'gatewayPolicy' => '\Swagger\Client\Model\GatewayPolicy',
         'gateways' => '\Swagger\Client\Model\GatewayConfigurations',
         'currencyPolicy' => 'string',
         'currencyOverride' => 'string[]',
@@ -75,6 +76,7 @@ class MerchantGatewayVersion implements ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'clientId' => 'clientId',
+        'gatewayPolicy' => 'gatewayPolicy',
         'gateways' => 'gateways',
         'currencyPolicy' => 'currencyPolicy',
         'currencyOverride' => 'currencyOverride',
@@ -90,6 +92,7 @@ class MerchantGatewayVersion implements ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'clientId' => 'setClientId',
+        'gatewayPolicy' => 'setGatewayPolicy',
         'gateways' => 'setGateways',
         'currencyPolicy' => 'setCurrencyPolicy',
         'currencyOverride' => 'setCurrencyOverride',
@@ -105,6 +108,7 @@ class MerchantGatewayVersion implements ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'clientId' => 'getClientId',
+        'gatewayPolicy' => 'getGatewayPolicy',
         'gateways' => 'getGateways',
         'currencyPolicy' => 'getCurrencyPolicy',
         'currencyOverride' => 'getCurrencyOverride',
@@ -161,6 +165,7 @@ class MerchantGatewayVersion implements ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['clientId'] = isset($data['clientId']) ? $data['clientId'] : null;
+        $this->container['gatewayPolicy'] = isset($data['gatewayPolicy']) ? $data['gatewayPolicy'] : null;
         $this->container['gateways'] = isset($data['gateways']) ? $data['gateways'] : null;
         $this->container['currencyPolicy'] = isset($data['currencyPolicy']) ? $data['currencyPolicy'] : null;
         $this->container['currencyOverride'] = isset($data['currencyOverride']) ? $data['currencyOverride'] : null;
@@ -240,6 +245,27 @@ class MerchantGatewayVersion implements ArrayAccess
     public function setClientId($clientId)
     {
         $this->container['clientId'] = $clientId;
+
+        return $this;
+    }
+
+    /**
+     * Gets gatewayPolicy
+     * @return \Swagger\Client\Model\GatewayPolicy
+     */
+    public function getGatewayPolicy()
+    {
+        return $this->container['gatewayPolicy'];
+    }
+
+    /**
+     * Sets gatewayPolicy
+     * @param \Swagger\Client\Model\GatewayPolicy $gatewayPolicy
+     * @return $this
+     */
+    public function setGatewayPolicy($gatewayPolicy)
+    {
+        $this->container['gatewayPolicy'] = $gatewayPolicy;
 
         return $this;
     }

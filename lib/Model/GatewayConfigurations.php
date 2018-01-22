@@ -54,6 +54,7 @@ class GatewayConfigurations implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'gatewayPolicy' => '\Swagger\Client\Model\GatewayPolicy',
         'gateways' => '\Swagger\Client\Model\GatewayConfiguration[]',
         'currencyPolicy' => 'string',
         'currencyOverride' => '\Swagger\Client\Model\Currency[]'
@@ -69,6 +70,7 @@ class GatewayConfigurations implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'gatewayPolicy' => 'gatewayPolicy',
         'gateways' => 'gateways',
         'currencyPolicy' => 'currencyPolicy',
         'currencyOverride' => 'currencyOverride'
@@ -80,6 +82,7 @@ class GatewayConfigurations implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'gatewayPolicy' => 'setGatewayPolicy',
         'gateways' => 'setGateways',
         'currencyPolicy' => 'setCurrencyPolicy',
         'currencyOverride' => 'setCurrencyOverride'
@@ -91,6 +94,7 @@ class GatewayConfigurations implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'gatewayPolicy' => 'getGatewayPolicy',
         'gateways' => 'getGateways',
         'currencyPolicy' => 'getCurrencyPolicy',
         'currencyOverride' => 'getCurrencyOverride'
@@ -143,6 +147,7 @@ class GatewayConfigurations implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['gatewayPolicy'] = isset($data['gatewayPolicy']) ? $data['gatewayPolicy'] : null;
         $this->container['gateways'] = isset($data['gateways']) ? $data['gateways'] : null;
         $this->container['currencyPolicy'] = isset($data['currencyPolicy']) ? $data['currencyPolicy'] : null;
         $this->container['currencyOverride'] = isset($data['currencyOverride']) ? $data['currencyOverride'] : null;
@@ -181,6 +186,27 @@ class GatewayConfigurations implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets gatewayPolicy
+     * @return \Swagger\Client\Model\GatewayPolicy
+     */
+    public function getGatewayPolicy()
+    {
+        return $this->container['gatewayPolicy'];
+    }
+
+    /**
+     * Sets gatewayPolicy
+     * @param \Swagger\Client\Model\GatewayPolicy $gatewayPolicy
+     * @return $this
+     */
+    public function setGatewayPolicy($gatewayPolicy)
+    {
+        $this->container['gatewayPolicy'] = $gatewayPolicy;
+
+        return $this;
+    }
 
     /**
      * Gets gateways
