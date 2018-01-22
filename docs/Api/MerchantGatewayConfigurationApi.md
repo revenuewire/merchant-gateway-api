@@ -85,7 +85,7 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Authorizat
 
 $api_instance = new Swagger\Client\Api\MerchantGatewayConfigurationApi();
 $clientId = "clientId_example"; // string | 
-$version = new \Swagger\Client\Model\GatewayConfigurations(); // \Swagger\Client\Model\GatewayConfigurations | 
+$version = new \Swagger\Client\Model\NewMerchantGatewayVersion(); // \Swagger\Client\Model\NewMerchantGatewayVersion | 
 
 try {
     $result = $api_instance->createMerchantGatewayVersion($clientId, $version);
@@ -101,7 +101,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clientId** | **string**|  |
- **version** | [**\Swagger\Client\Model\GatewayConfigurations**](../Model/\Swagger\Client\Model\GatewayConfigurations.md)|  |
+ **version** | [**\Swagger\Client\Model\NewMerchantGatewayVersion**](../Model/\Swagger\Client\Model\NewMerchantGatewayVersion.md)|  |
 
 ### Return type
 
@@ -194,7 +194,7 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Authorizat
 $api_instance = new Swagger\Client\Api\MerchantGatewayConfigurationApi();
 $clientId = "clientId_example"; // string | 
 $version = "version_example"; // string | 
-$version2 = new \Swagger\Client\Model\GatewayConfigurations(); // \Swagger\Client\Model\GatewayConfigurations | 
+$version2 = new \Swagger\Client\Model\NewMerchantGatewayVersion(); // \Swagger\Client\Model\NewMerchantGatewayVersion | 
 
 try {
     $result = $api_instance->updateMerchantGatewayVersion($clientId, $version, $version2);
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clientId** | **string**|  |
  **version** | **string**|  |
- **version2** | [**\Swagger\Client\Model\GatewayConfigurations**](../Model/\Swagger\Client\Model\GatewayConfigurations.md)|  |
+ **version2** | [**\Swagger\Client\Model\NewMerchantGatewayVersion**](../Model/\Swagger\Client\Model\NewMerchantGatewayVersion.md)|  |
 
 ### Return type
 

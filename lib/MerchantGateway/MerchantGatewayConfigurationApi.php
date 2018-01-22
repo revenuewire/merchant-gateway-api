@@ -206,7 +206,7 @@ class MerchantGatewayConfigurationApi
      * create a new gateway configuration version.
      *
      * @param string $clientId  (required)
-     * @param \Swagger\Client\Model\GatewayConfigurations $version  (required)
+     * @param \Swagger\Client\Model\NewMerchantGatewayVersion $version  (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return \Swagger\Client\Model\MerchantGatewayVersion
      */
@@ -222,7 +222,7 @@ class MerchantGatewayConfigurationApi
      * create a new gateway configuration version.
      *
      * @param string $clientId  (required)
-     * @param \Swagger\Client\Model\GatewayConfigurations $version  (required)
+     * @param \Swagger\Client\Model\NewMerchantGatewayVersion $version  (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of \Swagger\Client\Model\MerchantGatewayVersion, HTTP status code, HTTP response headers (array of strings)
      */
@@ -430,7 +430,7 @@ class MerchantGatewayConfigurationApi
      *
      * @param string $clientId  (required)
      * @param string $version  (required)
-     * @param \Swagger\Client\Model\GatewayConfigurations $version2  (required)
+     * @param \Swagger\Client\Model\NewMerchantGatewayVersion $version2  (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return \Swagger\Client\Model\MerchantGatewayVersion
      */
@@ -447,7 +447,7 @@ class MerchantGatewayConfigurationApi
      *
      * @param string $clientId  (required)
      * @param string $version  (required)
-     * @param \Swagger\Client\Model\GatewayConfigurations $version2  (required)
+     * @param \Swagger\Client\Model\NewMerchantGatewayVersion $version2  (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of \Swagger\Client\Model\MerchantGatewayVersion, HTTP status code, HTTP response headers (array of strings)
      */

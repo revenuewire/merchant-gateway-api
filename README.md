@@ -115,6 +115,7 @@ Class | Method | HTTP request | Description
  - [Methods](docs/Model/Methods.md)
  - [MigrationRule](docs/Model/MigrationRule.md)
  - [MigrationRules](docs/Model/MigrationRules.md)
+ - [NewMerchantGatewayVersion](docs/Model/NewMerchantGatewayVersion.md)
  - [NewMigrationRule](docs/Model/NewMigrationRule.md)
  - [PaymentMethod](docs/Model/PaymentMethod.md)
  - [Response](docs/Model/Response.md)

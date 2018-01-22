@@ -1,6 +1,6 @@
 <?php
 /**
- * PaymentMethod
+ * NewMerchantGatewayVersion
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * PaymentMethod Class Doc Comment
+ * NewMerchantGatewayVersion Class Doc Comment
  *
  * @category    Class
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class PaymentMethod implements ArrayAccess
+class NewMerchantGatewayVersion implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,16 +47,17 @@ class PaymentMethod implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'paymentMethod';
+    protected static $swaggerModelName = 'newMerchantGatewayVersion';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'method' => '\Swagger\Client\Model\Method',
-        'weight' => 'int',
-        'status' => 'string'
+        'gatewayPolicy' => '\Swagger\Client\Model\GatewayPolicy',
+        'gateways' => '\Swagger\Client\Model\GatewayConfigurations',
+        'currencyPolicy' => 'string',
+        'currencyOverride' => 'string[]'
     ];
 
     public static function swaggerTypes()
@@ -69,9 +70,10 @@ class PaymentMethod implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'method' => 'method',
-        'weight' => 'weight',
-        'status' => 'status'
+        'gatewayPolicy' => 'gatewayPolicy',
+        'gateways' => 'gateways',
+        'currencyPolicy' => 'currencyPolicy',
+        'currencyOverride' => 'currencyOverride'
     ];
 
 
@@ -80,9 +82,10 @@ class PaymentMethod implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'method' => 'setMethod',
-        'weight' => 'setWeight',
-        'status' => 'setStatus'
+        'gatewayPolicy' => 'setGatewayPolicy',
+        'gateways' => 'setGateways',
+        'currencyPolicy' => 'setCurrencyPolicy',
+        'currencyOverride' => 'setCurrencyOverride'
     ];
 
 
@@ -91,9 +94,10 @@ class PaymentMethod implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'method' => 'getMethod',
-        'weight' => 'getWeight',
-        'status' => 'getStatus'
+        'gatewayPolicy' => 'getGatewayPolicy',
+        'gateways' => 'getGateways',
+        'currencyPolicy' => 'getCurrencyPolicy',
+        'currencyOverride' => 'getCurrencyOverride'
     ];
 
     public static function attributeMap()
@@ -111,8 +115,9 @@ class PaymentMethod implements ArrayAccess
         return self::$getters;
     }
 
-    const STATUS_NOT_ACTIVATED = 'NOT_ACTIVATED';
-    const STATUS_ACTIVATED = 'ACTIVATED';
+    const CURRENCY_POLICY_ALL_CURRENCIES = 'ALL_CURRENCIES';
+    const CURRENCY_POLICY_PAYPAL_EXPRESS = 'PAYPAL_EXPRESS';
+    const CURRENCY_POLICY_CUSTOM = 'CUSTOM';
     
 
     
@@ -120,11 +125,12 @@ class PaymentMethod implements ArrayAccess
      * Gets allowable values of the enum
      * @return string[]
      */
-    public function getStatusAllowableValues()
+    public function getCurrencyPolicyAllowableValues()
     {
         return [
-            self::STATUS_NOT_ACTIVATED,
-            self::STATUS_ACTIVATED,
+            self::CURRENCY_POLICY_ALL_CURRENCIES,
+            self::CURRENCY_POLICY_PAYPAL_EXPRESS,
+            self::CURRENCY_POLICY_CUSTOM,
         ];
     }
     
@@ -141,9 +147,10 @@ class PaymentMethod implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['method'] = isset($data['method']) ? $data['method'] : null;
-        $this->container['weight'] = isset($data['weight']) ? $data['weight'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['gatewayPolicy'] = isset($data['gatewayPolicy']) ? $data['gatewayPolicy'] : null;
+        $this->container['gateways'] = isset($data['gateways']) ? $data['gateways'] : null;
+        $this->container['currencyPolicy'] = isset($data['currencyPolicy']) ? $data['currencyPolicy'] : null;
+        $this->container['currencyOverride'] = isset($data['currencyOverride']) ? $data['currencyOverride'] : null;
     }
 
     /**
@@ -155,9 +162,9 @@ class PaymentMethod implements ArrayAccess
     {
         $invalid_properties = [];
 
-        $allowed_values = ["NOT_ACTIVATED", "ACTIVATED"];
-        if (!in_array($this->container['status'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'status', must be one of 'NOT_ACTIVATED', 'ACTIVATED'.";
+        $allowed_values = ["ALL_CURRENCIES", "PAYPAL_EXPRESS", "CUSTOM"];
+        if (!in_array($this->container['currencyPolicy'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'currencyPolicy', must be one of 'ALL_CURRENCIES', 'PAYPAL_EXPRESS', 'CUSTOM'.";
         }
 
         return $invalid_properties;
@@ -172,8 +179,8 @@ class PaymentMethod implements ArrayAccess
     public function valid()
     {
 
-        $allowed_values = ["NOT_ACTIVATED", "ACTIVATED"];
-        if (!in_array($this->container['status'], $allowed_values)) {
+        $allowed_values = ["ALL_CURRENCIES", "PAYPAL_EXPRESS", "CUSTOM"];
+        if (!in_array($this->container['currencyPolicy'], $allowed_values)) {
             return false;
         }
         return true;
@@ -181,68 +188,89 @@ class PaymentMethod implements ArrayAccess
 
 
     /**
-     * Gets method
-     * @return \Swagger\Client\Model\Method
+     * Gets gatewayPolicy
+     * @return \Swagger\Client\Model\GatewayPolicy
      */
-    public function getMethod()
+    public function getGatewayPolicy()
     {
-        return $this->container['method'];
+        return $this->container['gatewayPolicy'];
     }
 
     /**
-     * Sets method
-     * @param \Swagger\Client\Model\Method $method
+     * Sets gatewayPolicy
+     * @param \Swagger\Client\Model\GatewayPolicy $gatewayPolicy
      * @return $this
      */
-    public function setMethod($method)
+    public function setGatewayPolicy($gatewayPolicy)
     {
-        $this->container['method'] = $method;
+        $this->container['gatewayPolicy'] = $gatewayPolicy;
 
         return $this;
     }
 
     /**
-     * Gets weight
-     * @return int
+     * Gets gateways
+     * @return \Swagger\Client\Model\GatewayConfigurations
      */
-    public function getWeight()
+    public function getGateways()
     {
-        return $this->container['weight'];
+        return $this->container['gateways'];
     }
 
     /**
-     * Sets weight
-     * @param int $weight
+     * Sets gateways
+     * @param \Swagger\Client\Model\GatewayConfigurations $gateways
      * @return $this
      */
-    public function setWeight($weight)
+    public function setGateways($gateways)
     {
-        $this->container['weight'] = $weight;
+        $this->container['gateways'] = $gateways;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets currencyPolicy
      * @return string
      */
-    public function getStatus()
+    public function getCurrencyPolicy()
     {
-        return $this->container['status'];
+        return $this->container['currencyPolicy'];
     }
 
     /**
-     * Sets status
-     * @param string $status
+     * Sets currencyPolicy
+     * @param string $currencyPolicy
      * @return $this
      */
-    public function setStatus($status)
+    public function setCurrencyPolicy($currencyPolicy)
     {
-        $allowed_values = array('NOT_ACTIVATED', 'ACTIVATED');
-        if (!is_null($status) && (!in_array($status, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'NOT_ACTIVATED', 'ACTIVATED'");
+        $allowed_values = array('ALL_CURRENCIES', 'PAYPAL_EXPRESS', 'CUSTOM');
+        if (!is_null($currencyPolicy) && (!in_array($currencyPolicy, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'currencyPolicy', must be one of 'ALL_CURRENCIES', 'PAYPAL_EXPRESS', 'CUSTOM'");
         }
-        $this->container['status'] = $status;
+        $this->container['currencyPolicy'] = $currencyPolicy;
+
+        return $this;
+    }
+
+    /**
+     * Gets currencyOverride
+     * @return string[]
+     */
+    public function getCurrencyOverride()
+    {
+        return $this->container['currencyOverride'];
+    }
+
+    /**
+     * Sets currencyOverride
+     * @param string[] $currencyOverride
+     * @return $this
+     */
+    public function setCurrencyOverride($currencyOverride)
+    {
+        $this->container['currencyOverride'] = $currencyOverride;
 
         return $this;
     }
