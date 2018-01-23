@@ -105,7 +105,6 @@ Class | Method | HTTP request | Description
  - [Error](docs/Model/Error.md)
  - [Gateway](docs/Model/Gateway.md)
  - [GatewayConfiguration](docs/Model/GatewayConfiguration.md)
- - [GatewayConfigurations](docs/Model/GatewayConfigurations.md)
  - [GatewayPolicy](docs/Model/GatewayPolicy.md)
  - [Gateways](docs/Model/Gateways.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)

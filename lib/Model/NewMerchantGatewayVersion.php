@@ -55,7 +55,7 @@ class NewMerchantGatewayVersion implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'gatewayPolicy' => '\Swagger\Client\Model\GatewayPolicy',
-        'gateways' => '\Swagger\Client\Model\GatewayConfigurations',
+        'gateways' => '\Swagger\Client\Model\GatewayConfiguration[]',
         'currencyPolicy' => 'string',
         'currencyOverride' => 'string[]'
     ];
@@ -210,7 +210,7 @@ class NewMerchantGatewayVersion implements ArrayAccess
 
     /**
      * Gets gateways
-     * @return \Swagger\Client\Model\GatewayConfigurations
+     * @return \Swagger\Client\Model\GatewayConfiguration[]
      */
     public function getGateways()
     {
@@ -219,7 +219,7 @@ class NewMerchantGatewayVersion implements ArrayAccess
 
     /**
      * Sets gateways
-     * @param \Swagger\Client\Model\GatewayConfigurations $gateways
+     * @param \Swagger\Client\Model\GatewayConfiguration[] $gateways
      * @return $this
      */
     public function setGateways($gateways)

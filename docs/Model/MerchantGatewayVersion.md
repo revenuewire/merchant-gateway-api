@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **id** | **string** |  | [optional] 
 **clientId** | **string** |  | [optional] 
 **gatewayPolicy** | [**\Swagger\Client\Model\GatewayPolicy**](GatewayPolicy.md) |  | [optional] 
-**gateways** | [**\Swagger\Client\Model\GatewayConfigurations**](GatewayConfigurations.md) |  | [optional] 
+**gateways** | [**\Swagger\Client\Model\GatewayConfiguration[]**](GatewayConfiguration.md) |  | [optional] 
 **currencyPolicy** | **string** |  | [optional] 
 **currencyOverride** | **string[]** |  | [optional] 
 **created** | **int** |  | [optional] 
