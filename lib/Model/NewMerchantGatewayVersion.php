@@ -55,7 +55,7 @@ class NewMerchantGatewayVersion implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'gatewayPolicy' => '\Swagger\Client\Model\GatewayPolicy',
-        'gateways' => '\Swagger\Client\Model\GatewayConfiguration[]',
+        'gatewayOverride' => '\Swagger\Client\Model\GatewayConfiguration[]',
         'currencyPolicy' => 'string',
         'currencyOverride' => 'string[]'
     ];
@@ -71,7 +71,7 @@ class NewMerchantGatewayVersion implements ArrayAccess
      */
     protected static $attributeMap = [
         'gatewayPolicy' => 'gatewayPolicy',
-        'gateways' => 'gateways',
+        'gatewayOverride' => 'gatewayOverride',
         'currencyPolicy' => 'currencyPolicy',
         'currencyOverride' => 'currencyOverride'
     ];
@@ -83,7 +83,7 @@ class NewMerchantGatewayVersion implements ArrayAccess
      */
     protected static $setters = [
         'gatewayPolicy' => 'setGatewayPolicy',
-        'gateways' => 'setGateways',
+        'gatewayOverride' => 'setGatewayOverride',
         'currencyPolicy' => 'setCurrencyPolicy',
         'currencyOverride' => 'setCurrencyOverride'
     ];
@@ -95,7 +95,7 @@ class NewMerchantGatewayVersion implements ArrayAccess
      */
     protected static $getters = [
         'gatewayPolicy' => 'getGatewayPolicy',
-        'gateways' => 'getGateways',
+        'gatewayOverride' => 'getGatewayOverride',
         'currencyPolicy' => 'getCurrencyPolicy',
         'currencyOverride' => 'getCurrencyOverride'
     ];
@@ -148,7 +148,7 @@ class NewMerchantGatewayVersion implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['gatewayPolicy'] = isset($data['gatewayPolicy']) ? $data['gatewayPolicy'] : null;
-        $this->container['gateways'] = isset($data['gateways']) ? $data['gateways'] : null;
+        $this->container['gatewayOverride'] = isset($data['gatewayOverride']) ? $data['gatewayOverride'] : null;
         $this->container['currencyPolicy'] = isset($data['currencyPolicy']) ? $data['currencyPolicy'] : null;
         $this->container['currencyOverride'] = isset($data['currencyOverride']) ? $data['currencyOverride'] : null;
     }
@@ -209,22 +209,22 @@ class NewMerchantGatewayVersion implements ArrayAccess
     }
 
     /**
-     * Gets gateways
+     * Gets gatewayOverride
      * @return \Swagger\Client\Model\GatewayConfiguration[]
      */
-    public function getGateways()
+    public function getGatewayOverride()
     {
-        return $this->container['gateways'];
+        return $this->container['gatewayOverride'];
     }
 
     /**
-     * Sets gateways
-     * @param \Swagger\Client\Model\GatewayConfiguration[] $gateways
+     * Sets gatewayOverride
+     * @param \Swagger\Client\Model\GatewayConfiguration[] $gatewayOverride
      * @return $this
      */
-    public function setGateways($gateways)
+    public function setGatewayOverride($gatewayOverride)
     {
-        $this->container['gateways'] = $gateways;
+        $this->container['gatewayOverride'] = $gatewayOverride;
 
         return $this;
     }

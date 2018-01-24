@@ -57,9 +57,11 @@ class MerchantGatewayVersion implements ArrayAccess
         'id' => 'string',
         'clientId' => 'string',
         'gatewayPolicy' => '\Swagger\Client\Model\GatewayPolicy',
+        'gatewayOverride' => '\Swagger\Client\Model\GatewayConfiguration[]',
         'gateways' => '\Swagger\Client\Model\GatewayConfiguration[]',
         'currencyPolicy' => 'string',
         'currencyOverride' => 'string[]',
+        'currencies' => 'string[]',
         'created' => 'int',
         'modified' => 'int'
     ];
@@ -77,9 +79,11 @@ class MerchantGatewayVersion implements ArrayAccess
         'id' => 'id',
         'clientId' => 'clientId',
         'gatewayPolicy' => 'gatewayPolicy',
+        'gatewayOverride' => 'gatewayOverride',
         'gateways' => 'gateways',
         'currencyPolicy' => 'currencyPolicy',
         'currencyOverride' => 'currencyOverride',
+        'currencies' => 'currencies',
         'created' => 'created',
         'modified' => 'modified'
     ];
@@ -93,9 +97,11 @@ class MerchantGatewayVersion implements ArrayAccess
         'id' => 'setId',
         'clientId' => 'setClientId',
         'gatewayPolicy' => 'setGatewayPolicy',
+        'gatewayOverride' => 'setGatewayOverride',
         'gateways' => 'setGateways',
         'currencyPolicy' => 'setCurrencyPolicy',
         'currencyOverride' => 'setCurrencyOverride',
+        'currencies' => 'setCurrencies',
         'created' => 'setCreated',
         'modified' => 'setModified'
     ];
@@ -109,9 +115,11 @@ class MerchantGatewayVersion implements ArrayAccess
         'id' => 'getId',
         'clientId' => 'getClientId',
         'gatewayPolicy' => 'getGatewayPolicy',
+        'gatewayOverride' => 'getGatewayOverride',
         'gateways' => 'getGateways',
         'currencyPolicy' => 'getCurrencyPolicy',
         'currencyOverride' => 'getCurrencyOverride',
+        'currencies' => 'getCurrencies',
         'created' => 'getCreated',
         'modified' => 'getModified'
     ];
@@ -166,9 +174,11 @@ class MerchantGatewayVersion implements ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['clientId'] = isset($data['clientId']) ? $data['clientId'] : null;
         $this->container['gatewayPolicy'] = isset($data['gatewayPolicy']) ? $data['gatewayPolicy'] : null;
+        $this->container['gatewayOverride'] = isset($data['gatewayOverride']) ? $data['gatewayOverride'] : null;
         $this->container['gateways'] = isset($data['gateways']) ? $data['gateways'] : null;
         $this->container['currencyPolicy'] = isset($data['currencyPolicy']) ? $data['currencyPolicy'] : null;
         $this->container['currencyOverride'] = isset($data['currencyOverride']) ? $data['currencyOverride'] : null;
+        $this->container['currencies'] = isset($data['currencies']) ? $data['currencies'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
     }
@@ -271,6 +281,27 @@ class MerchantGatewayVersion implements ArrayAccess
     }
 
     /**
+     * Gets gatewayOverride
+     * @return \Swagger\Client\Model\GatewayConfiguration[]
+     */
+    public function getGatewayOverride()
+    {
+        return $this->container['gatewayOverride'];
+    }
+
+    /**
+     * Sets gatewayOverride
+     * @param \Swagger\Client\Model\GatewayConfiguration[] $gatewayOverride
+     * @return $this
+     */
+    public function setGatewayOverride($gatewayOverride)
+    {
+        $this->container['gatewayOverride'] = $gatewayOverride;
+
+        return $this;
+    }
+
+    /**
      * Gets gateways
      * @return \Swagger\Client\Model\GatewayConfiguration[]
      */
@@ -333,6 +364,27 @@ class MerchantGatewayVersion implements ArrayAccess
     public function setCurrencyOverride($currencyOverride)
     {
         $this->container['currencyOverride'] = $currencyOverride;
+
+        return $this;
+    }
+
+    /**
+     * Gets currencies
+     * @return string[]
+     */
+    public function getCurrencies()
+    {
+        return $this->container['currencies'];
+    }
+
+    /**
+     * Sets currencies
+     * @param string[] $currencies
+     * @return $this
+     */
+    public function setCurrencies($currencies)
+    {
+        $this->container['currencies'] = $currencies;
 
         return $this;
     }
