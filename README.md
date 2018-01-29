@@ -100,6 +100,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [Country](docs/Model/Country.md)
  - [Currencies](docs/Model/Currencies.md)
  - [Currency](docs/Model/Currency.md)
  - [Error](docs/Model/Error.md)

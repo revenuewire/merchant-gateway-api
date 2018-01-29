@@ -194,8 +194,8 @@ class PublicApi
      * get list of payment methods
      *
      * @param string $clientId  (required)
-     * @param string $country  (optional)
-     * @param string $currency  (optional)
+     * @param string $country Two-letter ISO 3166-1 alpha-2 country codes, all CAPs. For example, [US, CA] (optional)
+     * @param string $currency Three-letter ISO 4217 Currency Code, all CAPs. For example, [USD, CAD] (optional)
      * @param string $version  (optional)
      * @param string $hasAffiliation  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -213,8 +213,8 @@ class PublicApi
      * get list of payment methods
      *
      * @param string $clientId  (required)
-     * @param string $country  (optional)
-     * @param string $currency  (optional)
+     * @param string $country Two-letter ISO 3166-1 alpha-2 country codes, all CAPs. For example, [US, CA] (optional)
+     * @param string $currency Three-letter ISO 4217 Currency Code, all CAPs. For example, [USD, CAD] (optional)
      * @param string $version  (optional)
      * @param string $hasAffiliation  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
