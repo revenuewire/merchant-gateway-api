@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional] 
 **clientId** | **string** |  | [optional] 
+**name** | **string** |  | [optional] 
 **gatewayPolicy** | [**\Swagger\Client\Model\GatewayPolicy**](GatewayPolicy.md) |  | [optional] 
 **gatewayOverride** | [**\Swagger\Client\Model\GatewayConfiguration[]**](GatewayConfiguration.md) |  | [optional] 
 **gateways** | [**\Swagger\Client\Model\GatewayConfiguration[]**](GatewayConfiguration.md) |  | [optional] 

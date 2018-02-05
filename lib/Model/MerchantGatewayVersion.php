@@ -56,6 +56,7 @@ class MerchantGatewayVersion implements ArrayAccess
     protected static $swaggerTypes = [
         'id' => 'string',
         'clientId' => 'string',
+        'name' => 'string',
         'gatewayPolicy' => '\Swagger\Client\Model\GatewayPolicy',
         'gatewayOverride' => '\Swagger\Client\Model\GatewayConfiguration[]',
         'gateways' => '\Swagger\Client\Model\GatewayConfiguration[]',
@@ -78,6 +79,7 @@ class MerchantGatewayVersion implements ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'clientId' => 'clientId',
+        'name' => 'name',
         'gatewayPolicy' => 'gatewayPolicy',
         'gatewayOverride' => 'gatewayOverride',
         'gateways' => 'gateways',
@@ -96,6 +98,7 @@ class MerchantGatewayVersion implements ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'clientId' => 'setClientId',
+        'name' => 'setName',
         'gatewayPolicy' => 'setGatewayPolicy',
         'gatewayOverride' => 'setGatewayOverride',
         'gateways' => 'setGateways',
@@ -114,6 +117,7 @@ class MerchantGatewayVersion implements ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'clientId' => 'getClientId',
+        'name' => 'getName',
         'gatewayPolicy' => 'getGatewayPolicy',
         'gatewayOverride' => 'getGatewayOverride',
         'gateways' => 'getGateways',
@@ -173,6 +177,7 @@ class MerchantGatewayVersion implements ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['clientId'] = isset($data['clientId']) ? $data['clientId'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['gatewayPolicy'] = isset($data['gatewayPolicy']) ? $data['gatewayPolicy'] : null;
         $this->container['gatewayOverride'] = isset($data['gatewayOverride']) ? $data['gatewayOverride'] : null;
         $this->container['gateways'] = isset($data['gateways']) ? $data['gateways'] : null;
@@ -255,6 +260,27 @@ class MerchantGatewayVersion implements ArrayAccess
     public function setClientId($clientId)
     {
         $this->container['clientId'] = $clientId;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     * @param string $name
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
 
         return $this;
     }

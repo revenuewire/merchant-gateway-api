@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**name** | **string** |  | [optional] 
 **gatewayPolicy** | [**\Swagger\Client\Model\GatewayPolicy**](GatewayPolicy.md) |  | [optional] 
 **gatewayOverride** | [**\Swagger\Client\Model\GatewayConfiguration[]**](GatewayConfiguration.md) |  | [optional] 
 **currencyPolicy** | **string** |  | [optional] 

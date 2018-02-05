@@ -54,6 +54,7 @@ class NewMerchantGatewayVersion implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'name' => 'string',
         'gatewayPolicy' => '\Swagger\Client\Model\GatewayPolicy',
         'gatewayOverride' => '\Swagger\Client\Model\GatewayConfiguration[]',
         'currencyPolicy' => 'string',
@@ -70,6 +71,7 @@ class NewMerchantGatewayVersion implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'name' => 'name',
         'gatewayPolicy' => 'gatewayPolicy',
         'gatewayOverride' => 'gatewayOverride',
         'currencyPolicy' => 'currencyPolicy',
@@ -82,6 +84,7 @@ class NewMerchantGatewayVersion implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'name' => 'setName',
         'gatewayPolicy' => 'setGatewayPolicy',
         'gatewayOverride' => 'setGatewayOverride',
         'currencyPolicy' => 'setCurrencyPolicy',
@@ -94,6 +97,7 @@ class NewMerchantGatewayVersion implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'name' => 'getName',
         'gatewayPolicy' => 'getGatewayPolicy',
         'gatewayOverride' => 'getGatewayOverride',
         'currencyPolicy' => 'getCurrencyPolicy',
@@ -147,6 +151,7 @@ class NewMerchantGatewayVersion implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['gatewayPolicy'] = isset($data['gatewayPolicy']) ? $data['gatewayPolicy'] : null;
         $this->container['gatewayOverride'] = isset($data['gatewayOverride']) ? $data['gatewayOverride'] : null;
         $this->container['currencyPolicy'] = isset($data['currencyPolicy']) ? $data['currencyPolicy'] : null;
@@ -186,6 +191,27 @@ class NewMerchantGatewayVersion implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets name
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     * @param string $name
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
 
     /**
      * Gets gatewayPolicy
