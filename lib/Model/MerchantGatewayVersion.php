@@ -144,7 +144,7 @@ class MerchantGatewayVersion implements ArrayAccess
     }
 
     const CURRENCY_POLICY_ALL_CURRENCIES = 'ALL_CURRENCIES';
-    const CURRENCY_POLICY_PAYPAL_EXPRESS = 'PAYPAL_EXPRESS';
+    const CURRENCY_POLICY_DEFAULT = 'DEFAULT';
     const CURRENCY_POLICY_CUSTOM = 'CUSTOM';
     
 
@@ -157,7 +157,7 @@ class MerchantGatewayVersion implements ArrayAccess
     {
         return [
             self::CURRENCY_POLICY_ALL_CURRENCIES,
-            self::CURRENCY_POLICY_PAYPAL_EXPRESS,
+            self::CURRENCY_POLICY_DEFAULT,
             self::CURRENCY_POLICY_CUSTOM,
         ];
     }
@@ -197,9 +197,9 @@ class MerchantGatewayVersion implements ArrayAccess
     {
         $invalid_properties = [];
 
-        $allowed_values = ["ALL_CURRENCIES", "PAYPAL_EXPRESS", "CUSTOM"];
+        $allowed_values = ["ALL_CURRENCIES", "DEFAULT", "CUSTOM"];
         if (!in_array($this->container['currencyPolicy'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'currencyPolicy', must be one of 'ALL_CURRENCIES', 'PAYPAL_EXPRESS', 'CUSTOM'.";
+            $invalid_properties[] = "invalid value for 'currencyPolicy', must be one of 'ALL_CURRENCIES', 'DEFAULT', 'CUSTOM'.";
         }
 
         return $invalid_properties;
@@ -214,7 +214,7 @@ class MerchantGatewayVersion implements ArrayAccess
     public function valid()
     {
 
-        $allowed_values = ["ALL_CURRENCIES", "PAYPAL_EXPRESS", "CUSTOM"];
+        $allowed_values = ["ALL_CURRENCIES", "DEFAULT", "CUSTOM"];
         if (!in_array($this->container['currencyPolicy'], $allowed_values)) {
             return false;
         }
@@ -364,9 +364,9 @@ class MerchantGatewayVersion implements ArrayAccess
      */
     public function setCurrencyPolicy($currencyPolicy)
     {
-        $allowed_values = array('ALL_CURRENCIES', 'PAYPAL_EXPRESS', 'CUSTOM');
+        $allowed_values = array('ALL_CURRENCIES', 'DEFAULT', 'CUSTOM');
         if (!is_null($currencyPolicy) && (!in_array($currencyPolicy, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'currencyPolicy', must be one of 'ALL_CURRENCIES', 'PAYPAL_EXPRESS', 'CUSTOM'");
+            throw new \InvalidArgumentException("Invalid value for 'currencyPolicy', must be one of 'ALL_CURRENCIES', 'DEFAULT', 'CUSTOM'");
         }
         $this->container['currencyPolicy'] = $currencyPolicy;
 

@@ -40,7 +40,6 @@ use \ArrayAccess;
  * @link        https://github.com/swagger-api/swagger-codegen
  */
 class Method {
-    const GENERIC = 'GENERIC';
     const VISA = 'VISA';
     const VISA_DEBIT = 'VISA_DEBIT';
     const VISA_ELECTRON = 'VISA_ELECTRON';
