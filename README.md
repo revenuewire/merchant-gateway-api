@@ -94,7 +94,6 @@ Class | Method | HTTP request | Description
 *MigrationRulesApi* | [**deleteMigrationRule**](docs/Api/MigrationRulesApi.md#deletemigrationrule) | **DELETE** /merchants/{clientId}/migration-rules/{ruleId} | Delete migration rule
 *MigrationRulesApi* | [**getMigrationRule**](docs/Api/MigrationRulesApi.md#getmigrationrule) | **GET** /merchants/{clientId}/migration-rules/{ruleId} | Get migration rule
 *PayApi* | [**chooseGateway**](docs/Api/PayApi.md#choosegateway) | **GET** /merchants/{clientId}/choose-gateway | Choose a gateway
-*PublicApi* | [**getCurrencies**](docs/Api/PublicApi.md#getcurrencies) | **GET** /merchants/{clientId}/currencies | get list of currencies
 *PublicApi* | [**getPaymentMethods**](docs/Api/PublicApi.md#getpaymentmethods) | **GET** /merchants/{clientId}/payment-methods | get list of payment methods
 
 

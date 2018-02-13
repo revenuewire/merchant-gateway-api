@@ -56,9 +56,7 @@ class NewMerchantGatewayVersion implements ArrayAccess
     protected static $swaggerTypes = [
         'name' => 'string',
         'gatewayPolicy' => '\Swagger\Client\Model\GatewayPolicy',
-        'gatewayOverride' => '\Swagger\Client\Model\GatewayConfiguration[]',
-        'currencyPolicy' => 'string',
-        'currencyOverride' => 'string[]'
+        'gatewayOverride' => '\Swagger\Client\Model\GatewayConfiguration[]'
     ];
 
     public static function swaggerTypes()
@@ -73,9 +71,7 @@ class NewMerchantGatewayVersion implements ArrayAccess
     protected static $attributeMap = [
         'name' => 'name',
         'gatewayPolicy' => 'gatewayPolicy',
-        'gatewayOverride' => 'gatewayOverride',
-        'currencyPolicy' => 'currencyPolicy',
-        'currencyOverride' => 'currencyOverride'
+        'gatewayOverride' => 'gatewayOverride'
     ];
 
 
@@ -86,9 +82,7 @@ class NewMerchantGatewayVersion implements ArrayAccess
     protected static $setters = [
         'name' => 'setName',
         'gatewayPolicy' => 'setGatewayPolicy',
-        'gatewayOverride' => 'setGatewayOverride',
-        'currencyPolicy' => 'setCurrencyPolicy',
-        'currencyOverride' => 'setCurrencyOverride'
+        'gatewayOverride' => 'setGatewayOverride'
     ];
 
 
@@ -99,9 +93,7 @@ class NewMerchantGatewayVersion implements ArrayAccess
     protected static $getters = [
         'name' => 'getName',
         'gatewayPolicy' => 'getGatewayPolicy',
-        'gatewayOverride' => 'getGatewayOverride',
-        'currencyPolicy' => 'getCurrencyPolicy',
-        'currencyOverride' => 'getCurrencyOverride'
+        'gatewayOverride' => 'getGatewayOverride'
     ];
 
     public static function attributeMap()
@@ -119,24 +111,8 @@ class NewMerchantGatewayVersion implements ArrayAccess
         return self::$getters;
     }
 
-    const CURRENCY_POLICY_DEFAULT = 'DEFAULT';
-    const CURRENCY_POLICY_ALL_CURRENCIES = 'ALL_CURRENCIES';
-    const CURRENCY_POLICY_CUSTOM = 'CUSTOM';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getCurrencyPolicyAllowableValues()
-    {
-        return [
-            self::CURRENCY_POLICY_DEFAULT,
-            self::CURRENCY_POLICY_ALL_CURRENCIES,
-            self::CURRENCY_POLICY_CUSTOM,
-        ];
-    }
     
 
     /**
@@ -154,8 +130,6 @@ class NewMerchantGatewayVersion implements ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['gatewayPolicy'] = isset($data['gatewayPolicy']) ? $data['gatewayPolicy'] : null;
         $this->container['gatewayOverride'] = isset($data['gatewayOverride']) ? $data['gatewayOverride'] : null;
-        $this->container['currencyPolicy'] = isset($data['currencyPolicy']) ? $data['currencyPolicy'] : null;
-        $this->container['currencyOverride'] = isset($data['currencyOverride']) ? $data['currencyOverride'] : null;
     }
 
     /**
@@ -166,11 +140,6 @@ class NewMerchantGatewayVersion implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = [];
-
-        $allowed_values = ["DEFAULT", "ALL_CURRENCIES", "CUSTOM"];
-        if (!in_array($this->container['currencyPolicy'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'currencyPolicy', must be one of 'DEFAULT', 'ALL_CURRENCIES', 'CUSTOM'.";
-        }
 
         return $invalid_properties;
     }
@@ -184,10 +153,6 @@ class NewMerchantGatewayVersion implements ArrayAccess
     public function valid()
     {
 
-        $allowed_values = ["DEFAULT", "ALL_CURRENCIES", "CUSTOM"];
-        if (!in_array($this->container['currencyPolicy'], $allowed_values)) {
-            return false;
-        }
         return true;
     }
 
@@ -251,52 +216,6 @@ class NewMerchantGatewayVersion implements ArrayAccess
     public function setGatewayOverride($gatewayOverride)
     {
         $this->container['gatewayOverride'] = $gatewayOverride;
-
-        return $this;
-    }
-
-    /**
-     * Gets currencyPolicy
-     * @return string
-     */
-    public function getCurrencyPolicy()
-    {
-        return $this->container['currencyPolicy'];
-    }
-
-    /**
-     * Sets currencyPolicy
-     * @param string $currencyPolicy
-     * @return $this
-     */
-    public function setCurrencyPolicy($currencyPolicy)
-    {
-        $allowed_values = array('DEFAULT', 'ALL_CURRENCIES', 'CUSTOM');
-        if (!is_null($currencyPolicy) && (!in_array($currencyPolicy, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'currencyPolicy', must be one of 'DEFAULT', 'ALL_CURRENCIES', 'CUSTOM'");
-        }
-        $this->container['currencyPolicy'] = $currencyPolicy;
-
-        return $this;
-    }
-
-    /**
-     * Gets currencyOverride
-     * @return string[]
-     */
-    public function getCurrencyOverride()
-    {
-        return $this->container['currencyOverride'];
-    }
-
-    /**
-     * Sets currencyOverride
-     * @param string[] $currencyOverride
-     * @return $this
-     */
-    public function setCurrencyOverride($currencyOverride)
-    {
-        $this->container['currencyOverride'] = $currencyOverride;
 
         return $this;
     }
