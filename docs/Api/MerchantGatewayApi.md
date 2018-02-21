@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **createMerchantGateway**
-> \Swagger\Client\Model\MerchantGateway createMerchantGateway($clientId)
+> \Swagger\Client\Model\MerchantGateway createMerchantGateway($clientId, $gatewayPolicy)
 
 create merchant gateway configuration
 
@@ -29,9 +29,10 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Authorizat
 
 $api_instance = new Swagger\Client\Api\MerchantGatewayApi();
 $clientId = "clientId_example"; // string | 
+$gatewayPolicy = "gatewayPolicy_example"; // string | 
 
 try {
-    $result = $api_instance->createMerchantGateway($clientId);
+    $result = $api_instance->createMerchantGateway($clientId, $gatewayPolicy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MerchantGatewayApi->createMerchantGateway: ', $e->getMessage(), PHP_EOL;
@@ -44,6 +45,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clientId** | **string**|  |
+ **gatewayPolicy** | **string**|  | [optional]
 
 ### Return type
 

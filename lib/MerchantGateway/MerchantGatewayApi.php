@@ -93,12 +93,13 @@ class MerchantGatewayApi
      * create merchant gateway configuration
      *
      * @param string $clientId  (required)
+     * @param string $gatewayPolicy  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return \Swagger\Client\Model\MerchantGateway
      */
-    public function createMerchantGateway($clientId)
+    public function createMerchantGateway($clientId, $gatewayPolicy = null)
     {
-        list($response) = $this->createMerchantGatewayWithHttpInfo($clientId);
+        list($response) = $this->createMerchantGatewayWithHttpInfo($clientId, $gatewayPolicy);
         return $response;
     }
 
@@ -108,10 +109,11 @@ class MerchantGatewayApi
      * create merchant gateway configuration
      *
      * @param string $clientId  (required)
+     * @param string $gatewayPolicy  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of \Swagger\Client\Model\MerchantGateway, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createMerchantGatewayWithHttpInfo($clientId)
+    public function createMerchantGatewayWithHttpInfo($clientId, $gatewayPolicy = null)
     {
         // verify the required parameter 'clientId' is set
         if ($clientId === null) {
@@ -135,6 +137,10 @@ class MerchantGatewayApi
         // form params
         if ($clientId !== null) {
             $formParams['clientId'] = $this->apiClient->getSerializer()->toFormValue($clientId);
+        }
+        // form params
+        if ($gatewayPolicy !== null) {
+            $formParams['gatewayPolicy'] = $this->apiClient->getSerializer()->toFormValue($gatewayPolicy);
         }
         
         // for model (json/xml)
