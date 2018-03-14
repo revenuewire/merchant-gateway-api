@@ -93,7 +93,7 @@ class PayApi
      * Choose a gateway
      *
      * @param string $clientId  (required)
-     * @param string $method  (required)
+     * @param string $method Pass the payment method. If payment method cannot be determined, set it to UNKNOWN. (required)
      * @param string $country Two-letter ISO 3166-1 alpha-2 country codes, all CAPs. For example, [US, CA] (required)
      * @param string $currency Three-letter ISO 4217 Currency Code, all CAPs. For example, [USD, CAD] (required)
      * @param string $hasAffiliation  (required)
@@ -113,7 +113,7 @@ class PayApi
      * Choose a gateway
      *
      * @param string $clientId  (required)
-     * @param string $method  (required)
+     * @param string $method Pass the payment method. If payment method cannot be determined, set it to UNKNOWN. (required)
      * @param string $country Two-letter ISO 3166-1 alpha-2 country codes, all CAPs. For example, [US, CA] (required)
      * @param string $currency Three-letter ISO 4217 Currency Code, all CAPs. For example, [USD, CAD] (required)
      * @param string $hasAffiliation  (required)

@@ -28,7 +28,7 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Authorizat
 
 $api_instance = new Swagger\Client\Api\PayApi();
 $clientId = "clientId_example"; // string | 
-$method = "method_example"; // string | 
+$method = "method_example"; // string | Pass the payment method. If payment method cannot be determined, set it to UNKNOWN.
 $country = "country_example"; // string | Two-letter ISO 3166-1 alpha-2 country codes, all CAPs. For example, [US, CA]
 $currency = "currency_example"; // string | Three-letter ISO 4217 Currency Code, all CAPs. For example, [USD, CAD]
 $hasAffiliation = "hasAffiliation_example"; // string | 
@@ -48,7 +48,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clientId** | **string**|  |
- **method** | **string**|  |
+ **method** | **string**| Pass the payment method. If payment method cannot be determined, set it to UNKNOWN. |
  **country** | **string**| Two-letter ISO 3166-1 alpha-2 country codes, all CAPs. For example, [US, CA] |
  **currency** | **string**| Three-letter ISO 4217 Currency Code, all CAPs. For example, [USD, CAD] |
  **hasAffiliation** | **string**|  |
