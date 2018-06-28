@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **chooseGateway**
-> \Swagger\Client\Model\InlineResponse200 chooseGateway($clientId, $method, $country, $currency, $hasAffiliation, $version)
+> \Swagger\Client\Model\InlineResponse200 chooseGateway($clientId, $method, $country, $currency, $version, $hasAffiliation)
 
 Choose a gateway
 
@@ -31,11 +31,11 @@ $clientId = "clientId_example"; // string |
 $method = "method_example"; // string | Pass the payment method. If payment method cannot be determined, set it to UNKNOWN.
 $country = "country_example"; // string | Two-letter ISO 3166-1 alpha-2 country codes, all CAPs. For example, [US, CA]
 $currency = "currency_example"; // string | Three-letter ISO 4217 Currency Code, all CAPs. For example, [USD, CAD]
-$hasAffiliation = "hasAffiliation_example"; // string | 
 $version = "version_example"; // string | 
+$hasAffiliation = "hasAffiliation_example"; // string | 
 
 try {
-    $result = $api_instance->chooseGateway($clientId, $method, $country, $currency, $hasAffiliation, $version);
+    $result = $api_instance->chooseGateway($clientId, $method, $country, $currency, $version, $hasAffiliation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PayApi->chooseGateway: ', $e->getMessage(), PHP_EOL;
@@ -49,10 +49,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clientId** | **string**|  |
  **method** | **string**| Pass the payment method. If payment method cannot be determined, set it to UNKNOWN. |
- **country** | **string**| Two-letter ISO 3166-1 alpha-2 country codes, all CAPs. For example, [US, CA] |
- **currency** | **string**| Three-letter ISO 4217 Currency Code, all CAPs. For example, [USD, CAD] |
- **hasAffiliation** | **string**|  |
+ **country** | **string**| Two-letter ISO 3166-1 alpha-2 country codes, all CAPs. For example, [US, CA] | [optional]
+ **currency** | **string**| Three-letter ISO 4217 Currency Code, all CAPs. For example, [USD, CAD] | [optional]
  **version** | **string**|  | [optional]
+ **hasAffiliation** | **string**|  | [optional]
 
 ### Return type
 

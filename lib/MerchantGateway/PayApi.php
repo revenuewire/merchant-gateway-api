@@ -94,16 +94,16 @@ class PayApi
      *
      * @param string $clientId  (required)
      * @param string $method Pass the payment method. If payment method cannot be determined, set it to UNKNOWN. (required)
-     * @param string $country Two-letter ISO 3166-1 alpha-2 country codes, all CAPs. For example, [US, CA] (required)
-     * @param string $currency Three-letter ISO 4217 Currency Code, all CAPs. For example, [USD, CAD] (required)
-     * @param string $hasAffiliation  (required)
+     * @param string $country Two-letter ISO 3166-1 alpha-2 country codes, all CAPs. For example, [US, CA] (optional)
+     * @param string $currency Three-letter ISO 4217 Currency Code, all CAPs. For example, [USD, CAD] (optional)
      * @param string $version  (optional)
+     * @param string $hasAffiliation  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return \Swagger\Client\Model\InlineResponse200
      */
-    public function chooseGateway($clientId, $method, $country, $currency, $hasAffiliation, $version = null)
+    public function chooseGateway($clientId, $method, $country = null, $currency = null, $version = null, $hasAffiliation = null)
     {
-        list($response) = $this->chooseGatewayWithHttpInfo($clientId, $method, $country, $currency, $hasAffiliation, $version);
+        list($response) = $this->chooseGatewayWithHttpInfo($clientId, $method, $country, $currency, $version, $hasAffiliation);
         return $response;
     }
 
@@ -114,14 +114,14 @@ class PayApi
      *
      * @param string $clientId  (required)
      * @param string $method Pass the payment method. If payment method cannot be determined, set it to UNKNOWN. (required)
-     * @param string $country Two-letter ISO 3166-1 alpha-2 country codes, all CAPs. For example, [US, CA] (required)
-     * @param string $currency Three-letter ISO 4217 Currency Code, all CAPs. For example, [USD, CAD] (required)
-     * @param string $hasAffiliation  (required)
+     * @param string $country Two-letter ISO 3166-1 alpha-2 country codes, all CAPs. For example, [US, CA] (optional)
+     * @param string $currency Three-letter ISO 4217 Currency Code, all CAPs. For example, [USD, CAD] (optional)
      * @param string $version  (optional)
+     * @param string $hasAffiliation  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of \Swagger\Client\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
      */
-    public function chooseGatewayWithHttpInfo($clientId, $method, $country, $currency, $hasAffiliation, $version = null)
+    public function chooseGatewayWithHttpInfo($clientId, $method, $country = null, $currency = null, $version = null, $hasAffiliation = null)
     {
         // verify the required parameter 'clientId' is set
         if ($clientId === null) {
@@ -130,18 +130,6 @@ class PayApi
         // verify the required parameter 'method' is set
         if ($method === null) {
             throw new \InvalidArgumentException('Missing the required parameter $method when calling chooseGateway');
-        }
-        // verify the required parameter 'country' is set
-        if ($country === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $country when calling chooseGateway');
-        }
-        // verify the required parameter 'currency' is set
-        if ($currency === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $currency when calling chooseGateway');
-        }
-        // verify the required parameter 'hasAffiliation' is set
-        if ($hasAffiliation === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $hasAffiliation when calling chooseGateway');
         }
         // parse inputs
         $resourcePath = "/merchants/{clientId}/choose-gateway";
